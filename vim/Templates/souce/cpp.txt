@@ -1,0 +1,86 @@
+/*{{{ #include */
+#include <iostream>
+#include <cstdio>
+#include <ostream>
+#include <string>
+#include <vector>
+#include <set>
+#include <queue>
+#include <stack>
+#include <map>
+#include <tuple>
+#include <algorithm>
+#include <utility>
+#include <cmath>/*}}}*/
+/*{{{ namespace R2357 */
+namespace R2357 {
+    inline void IN(void){return;}
+    template<class F,class... R>inline void IN(F& f,R&... r){std::cin>>f;IN(r...);}
+    template <class T>inline void OUT(T x){std::cout<<x<<'\n';}
+    template<class T>inline bool chmin(T& a,T b){if(a>b){a=b;return 1;}return 0;}
+    template<class T>inline bool chmax(T& a,T b){if(a<b){a=b;return 1;}return 0;}
+    template<class T=int>T read(){
+        T x=0; char c;
+        while(((c=getchar())>'9'||c<'0')&&c!='-');
+        const bool f=(c=='-')&&(c=getchar());
+        while(x=x*10-48+c,(c=getchar())>='0'&&c<='9');
+        return f?-x:x;
+    }
+    template<class T>std::istream& operator>>(std::istream& is,std::vector<T>& V){
+        for(auto& v:V)is>>v; return is;
+    }
+    template<class T1,class T2>
+    std::istream& operator>>(std::istream& is,std::pair<T1,T2>& P){
+        return is>>P.first>>P.second;
+    }
+    template<class T>std::ostream& operator<<(std::ostream& os,std::vector<T>& V){
+        for(int i=0;i<V.size();i++)os<<V[i]<<(i<V.size()-1?" ":""); return os;
+    }
+    template<class T>inline T ceil_div(T a,T b){
+    	return (a+(b-1))/b;
+    }
+    namespace debug {
+        using namespace std;
+        void Write(void){cerr<<endl;}
+        template<class F,class...R>void Write(F f,R...r){cerr<<' '<<f;Write(r...);}
+        template<class T>void Write(vector<T>& V,int n=-1){
+            if(n==-1) n = V.size();
+            for(int i=0;i<n;i++)cerr<<' '<<V[i]; cerr<<endl;
+        }
+        template<class T,class U> void Write(pair<T,U>& p){cerr<<' '<<'{'<<p.first<<','<<p.second<<'}'<<endl;}
+        #include <cxxabi.h>
+        template<class T>string TypeName(T& x){
+            return string(abi::__cxa_demangle(typeid(T).name(), 0, 0, 0));
+        }
+    }
+}/*}}}*/
+/*{{{ using */
+using namespace std; using namespace R2357;
+using ll=long long; using ld=long double;
+using pint=pair<int,int>;/*}}}*/
+/*{{{ #define */
+#define rep(i,a,b) for(ll i=a;i<ll(b);i++)
+#define repr(i,a,b) for(ll i=a;i>=ll(b);i--)
+#define each(x,v) for(auto& x:v)
+#define el '\n'
+#define ALL(x) x.begin(),x.end()
+#define ALLR(x) x.rbegin(),x.rend()
+#define Unique(x) sort(x.begin(),x.end());x.erase(unique(x.begin(),x.end()),x.end())
+#define Fill(v,n) fill(v,v+sizeof(v)/sizeof(*v),n)
+#define max_element(x) *max_element(x.begin(),x.end())
+#define min_element(x) *min_element(x.begin(),x.end())
+#define INF 1073741823 // 2e30-1
+#define INFL 2305843009213693951ll // 2e61-1
+#define _FASTIO_ ios::sync_with_stdio(false),cin.tie(nullptr);
+/*}}}*/
+
+
+/* NOTE
+ 0.
+*/
+// using namespace debug;
+
+int main(){ _FASTIO_
+    
+    return 0;
+}

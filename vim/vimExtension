@@ -1,0 +1,114 @@
+"------------------------------------------------------------------
+" 検索
+"------------------------------------------------------------------
+
+" 検索ワードの最初の文字を入力した時点で検索を開始する
+set incsearch
+
+" 検索パターンにおいて大文字と小文字を区別しない
+set ignorecase
+
+" 検索結果をハイライト表示する
+set hlsearch
+
+" 検索結果ハイライトを ESC*2 で非表示にする
+nnoremap <ESC><ESC> :nohl<CR>
+
+
+"------------------------------------------------------------------
+" 操作
+"------------------------------------------------------------------
+
+" 挿入モードでバックスペース削除を有効
+set backspace=indent,eol,start
+
+" 行末の1文字先までカーソルを移動可能に
+set virtualedit=onemore
+
+" 新しい行のインデントを現在行と同じにする
+set autoindent
+
+" 入力中のコマンドを表示する
+set showcmd
+
+" コマンドモードでTabキーによるファイル名を補完する
+set widmenu
+
+" カーソルを行頭、行末で止まらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
+" 変更中のファイルでも、保存しないで他のファイルを表示
+set hidden
+
+" ビープ音を消す
+set belloff=all
+
+" タブをスペースに展開する
+set expandtab
+
+" タブの画面上での幅
+set tabstop=4
+
+" smartindentで増減する幅
+set shiftwidth=4
+
+" 改行時に前の行の構文をチェックし次の行のインデントを増減する
+set smartindent
+
+"新しい行を作った時に高度な自動インデントを行う
+set smarttab
+
+""""""""""""""""""""""""""""""""""""""""""
+" キーバインド
+""""""""""""""""""""""""""""""""""""""""""
+
+" ノーマルモードでエンターキー改行
+noremap <CR> i<CR><ESC>
+
+" バックスペース削除
+noremap <BS> h"_x
+
+" xで削除した時はヤンクしない
+vnoremap x "_x
+nnoremap x "_x
+
+" 折り返し時に表示行単位での移動できるように
+nnoremap j <Down>
+nnoremap k <Up>
+
+" @@ でエスケープキー
+inoremap @@ <ESC><Right>
+vnoremap @@ <ESC><Right>
+
+" Q で行頭に移動
+nnoremap Q ^
+" P で行末に移動
+nnoremap P $l
+
+" insertモードでemacsのキーバインドを使えるようにする
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-h> <BS>
+imap <C-a> <ESC>^i
+imap <C-e> <End>
+
+" 画面分割
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
+
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
+" "",''補完
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
+" tabキーをノーマルモードでも
+nnoremap <Tab> i<Tab><ESC>
+
+" スペース補完
+inoremap , ,<Space>

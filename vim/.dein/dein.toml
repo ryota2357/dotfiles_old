@@ -1,0 +1,191 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+
+
+# ディレクトリのツリー表示
+# 隠しファイルを設定する
+# <Space>o で開く
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+    let NERDTreeShowHidden=1
+    nnoremap <Space>o :NERDTreeToggle<CR>:vertical res 30<CR>
+
+	augroup vimrc_nerdtree
+  		autocmd!
+  		" 他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
+  		autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+	augroup END
+'''
+
+
+
+# ステータスバー
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+    nnoremap <silent> < :bprev<CR>
+    nnoremap <silent> > :bnext<CR>
+    nnoremap bd :bd<CR>
+'''
+
+
+
+# ステータスバーテーマ
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+hook_add = '''
+    let g:airline_theme = 'bubblegum'
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+'''
+
+
+
+# git のリポジトリとの差分表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+    set signcolumn=yes
+    let g:gitgutter_async = 1
+    let g:gitgutter_sign_modified = 'rw'
+    highlight GitGutterAdd ctermfg=green
+    highlight GitGutterChange ctermfg=yellow
+    highlight GitGutterDelete ctermfg=red
+    highlight GitGutterChangeDelete ctermfg=yellow
+'''
+
+
+
+# fzf
+[[plugins]]
+repo = 'junegunn/fzf'
+hook_post_update = './install --all'
+hook_add = '''
+    set rtp+=/usr/local/opt/fzf
+'''
+
+
+
+# fzf.vim
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = '''
+    command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+    \ <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+    \ : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+    \ <bang>0)
+    nnoremap <Space>g :Rg<Space>
+    nnoremap <Space>f :GFiles<CR>
+    nnoremap <Space>h :History<CR>
+'''
+
+
+
+# コメントコマンド
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+hook_add = '''
+    vnoremap ? :'<,'>TComment<CR>
+    nnoremap ? V:'<,'>TComment<CR>
+'''
+
+
+
+# deoplete.nvim
+# 自動補完プラグイン
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+	set completeopt-=menu
+'''
+
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
+
+
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = '''
+  git checkout release
+'''
+hook_add = '''
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+  nmap <silent> cd <Plug>(coc-definition)
+  nmap <silent> cr <Plug>(coc-references)
+  nmap <silent> cn <Plug>(coc-rename)
+  nmap <C-i> <Plug>(coc-format)
+  set completeopt-=menu
+'''
+
+
+
+# エディターからURIでブラウザーを開く
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+	nmap <C-@> <Plug>(openbrowser-smart-search)
+'''
+
+
+
+# カーソル下の単語をハイライトする
+[[plugins]]
+repo = 'osyo-manga/vim-brightest'
+
+
+
+# 末尾の空白が赤で強調表示する
+# 空白を削除する → :fixspace
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+hook_add = '''
+	let g:extra_whitespace_ignored_filetypes = ['md']
+	command! Fixspace FixWhitespace
+'''
+
+
+
+# :helpの日本語化
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = '''
+	set helplang=ja,en
+'''
+
+
+
+# icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+
+
+# 自作のカラースキーム
+[[plugins]]
+repo = '2357or/vim-mycolors'
+hook_add = '''
+    colorscheme mycolors
+    syntax on
+'''

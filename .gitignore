@@ -1,0 +1,7 @@
+
+.DS_Store
+vim/.vim/bundles
+vim/.vim/plugged
+vim/.vim/.netrwhist
+vim/.vim/.tags
+local/*

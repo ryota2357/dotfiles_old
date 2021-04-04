@@ -1,0 +1,90 @@
+# スニペットを利用可能にする
+# 設定ファイルを開く →:NeoSnippetEdit
+# 設定ファイルの書き方：http://adragoona.hatenablog.com/entry/20130929/1380437722
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+hook_add = '''
+	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+	xmap <C-k>     <Plug>(neosnippet_expand_target)
+	let g:neosnippet#snippets_directory='~/dotfiles/vim/snippets'
+	let g:neosnippet#disable_runtime_snippets = {
+	\   '_' : 1,
+	\ }
+
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+'''
+
+
+
+# マークダウンを可能に
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['md']
+
+
+
+# ブラウザ表示を可能に
+# ctl+p でプレビュー展開の
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['md']
+hook_add = '''
+    autocmd BufRead,BufNewFile *.md  set filetype=markdown
+    nnoremap <silent> <C-p> :PrevimOpen<CR>
+    let g:vim_markdown_folding_disabled=1
+    let g:previm_enable_realtime=1
+'''
+
+
+
+# markdownでテーブルを入力を楽に
+# :Tablemode と入力してTableModeに入る
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+on_ft = ['md']
+hook_add = '''
+	command! Tablemode TableModeToggle
+'''
+
+
+
+# c/c++のヘッダファイルの補完
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+depends = ['deoplete.nvim']
+
+
+
+# C++自作ライブラリ
+[[plugins]]
+repo = '2357or/MyLibrary_cpp'
+on_ft = ['cpp']
+hook_add = '''
+    let g:user_library_path='~/C++/LibrarySource'
+    let g:plugin_dir_path='~/.vim/bundles/repos/github.com/2357or/MyLibrary_cpp'
+'''
+
+
+
+# xmlの閉じタグ補完
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['html', 'xhtml', 'javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
+hook_add = '''
+  let g:closetag_filetypes='html'
+  let g:closetag_xhtml_filetypes='jsx,tsx,javascript.jsx,typescript.tsx,vue'
+  let g:closetag_emptyTags_caseSensitive=1
+  let g:closetag_shortcut='>'
+'''
+
+
+
+# vimプラグインのdoc作成補助
+[[plugins]]
+repo = 'LeafCage/vimhelpgenerator'
+on_ft = ['vim']
