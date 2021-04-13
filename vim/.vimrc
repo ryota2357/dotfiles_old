@@ -54,11 +54,6 @@ set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 
-" シンタックスハイライトをオン
-" 以下を設定してもvimではデフォルトでOn(enable)にならない(neoVimではなる)のでdein.tomlのカラースキーム のとろこでsetしてある
-"set syntax=enable
-":syntax enable
-
 " 現在行のハイライトを有効
 set cursorline
 
@@ -165,7 +160,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set hidden
 
 " 保存するコマンド履歴の数
-set history=500
+set history=100
 
 " 補完挙動
 set completeopt=menuone,noinsert
@@ -284,8 +279,8 @@ command! Toat %s/\[/\.at(/g | %s/\]/\)/g | w
 "--------------------------------------------------------------"
 "{{{
 if has('nvim')
-	" deoplete.nvimの設定
-	let g:deoplete#enable_at_startup = 1
+    " deoplete.nvimの設定
+    let g:deoplete#enable_at_startup = 1
 endif
 "}}}
 
