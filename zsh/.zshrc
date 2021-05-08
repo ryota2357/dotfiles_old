@@ -47,6 +47,7 @@ ojt(){ oj t -d ./$1/tests }
 ##        alias                                               ##
 #--------------------------------------------------------------#
 alias c='clang++ -std=c++17 -stdlib=libc++ -Wall -O2 -I/usr/local/include'
+alias clip='pbcopy'
 alias py='python3'
 alias a='./a.out'
 alias vi='vim'

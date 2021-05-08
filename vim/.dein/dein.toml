@@ -97,6 +97,16 @@ hook_add = '''
 
 
 
+# vimウィンドウのリサイズ
+# <C-T>で編集開始、h,j,k,lで編集、qでキャンセル
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+    let g:winresizer_start_key = '<C-T>'
+'''
+
+
+
 # deoplete.nvim
 # 自動補完プラグイン
 [[plugins]]
@@ -141,7 +151,7 @@ hook_add = '''
 
 
 
-# エディターからURIでブラウザーを開く
+# エディターから Ctrl-@ でURIでブラウザーを開く
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
@@ -157,12 +167,11 @@ repo = 'osyo-manga/vim-brightest'
 
 
 # 末尾の空白が赤で強調表示する
-# 空白を削除する → :fixspace
+# 空白を削除する → :FixWhitespace
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 hook_add = '''
 	let g:extra_whitespace_ignored_filetypes = ['md']
-	command! Fixspace FixWhitespace
 '''
 
 

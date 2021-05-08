@@ -9,6 +9,9 @@ export LANG=ja_JP.UTF-8
 # 自作コマンド
 export PATH=$HOME/My-command/bin:$PATH
 
+# Youbube DL Music (自作)
+export PATH=$HOME/Python/YoutubeDL-Music/bin:$PATH
+
 # llvn (clangd)
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
