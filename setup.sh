@@ -16,61 +16,16 @@ ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 # node.js
 curl -sL install-node.now.sh/lts | zsh
 
-# brew
-brew install pcre2
-brew install sqlite
-
-brew install gmp
-
-brew install perl
-brew install tig
-brew install carthage
-brew install icu4c
-brew install luajit
-brew install pkg-config
-
-brew install isl
-
-brew install unibilium
-
-brew install libevent
-brew install mpfr
-brew install python@3.8
-brew install utf8proc
-
-brew install libffi
-brew install msgpack
-brew install rbenv
-
-brew install libmpc
-brew install ncurses
-brew install readline
-brew install xz
-
-brew install libtermkey
-
-
-brew install libuv
-brew install ripgrep
-brew install gdbm
-brew install libvterm
-
-brew install gettext
-brew install libyaml
-brew install openssl@1.1
-
-
 # gh setting
 gh auth login
 
 # My command
 cd ~
-gh repo clone 2357or/My-command
+gh repo clone ryota2357/My-command
 
 # C++ settings
 mkdir -p C++
 cd C++
-gh repo clone 2357or/MyLibrary
 gh repo clone atcoder/ac-library
 mkdir -p Work
 cd Work
