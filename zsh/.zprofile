@@ -37,3 +37,6 @@ export MONO_GAC_PREFIX="/usr/local"
 
 # Boost
 export CPLUS_INCLUDE_PATH=/usr/local/Cellar/boost:$CPLUS_INCLUDE_PATH
+
+# dart/flutter pub
+export PATH=$HOME/.pub-cache/bin:$PATH

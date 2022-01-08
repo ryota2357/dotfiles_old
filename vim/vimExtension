@@ -101,7 +101,8 @@ nnoremap ss :<C-u>sp<CR><C-w>j
 nnoremap sv :<C-u>vs<CR><C-w>l
 
 " 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+" VisualStudio にてエンターキーを押すとpumbisible()と入力され改行が働かないのでコメントアウトした
+" inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 
 " "",''補完
 inoremap " ""<Left>
@@ -112,3 +113,11 @@ nnoremap <Tab> i<Tab><ESC>
 
 " スペース補完
 inoremap , ,<Space>
+
+"------------------------------------------------------------------
+" その他
+"------------------------------------------------------------------
+
+" クリップボード連携
+set clipboard=unnamed
+set clipboard+=ideaput
